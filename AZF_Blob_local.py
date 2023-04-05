@@ -1,9 +1,3 @@
-#Automation task
-#To download the pdf files from blob into local drive
-#STEP1: first to connect BLOB with the variables values
-#STEP2: Try to download the files on python memory that are available under specified container
-#with the help of threadpool (it can download 10 files at a times)
-
 #FAST DOWNLOAD FILES FROM BLOB LIBRARIES
 from multiprocessing.pool import ThreadPool
 #BLOB LIBRARIES
