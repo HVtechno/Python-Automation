@@ -32,10 +32,10 @@ In this repository, I have developed some automations with sharepoint which can 
   * Step1 : Authenticate Sharepoint with the credentials
   * Step2 : Get the list of all files on the specified sharepoint directory
   * Step3 : If the Excel file Extension ends with ".xlsx", If yes
-          - send the response to receive the binary file, if received
-            - read the file content
-            - Make a connection to SQL DB
-              - check If connection exist & connected
-                - try to load data from each excel to SQL SB, additionally write the file_name & corresponding status for which the files successfully loaded
-                - Catch the error if there is any connection issue & write the same file_name & corresponding status for which the files not loaded
-                - Finally, save the excel file & close the connection
+    * send the response to receive the binary file, if received
+      * read the file content
+      - Make a connection to SQL DB
+        - check If connection exist & connected
+          - try to load data from each excel to SQL SB, additionally write the file_name & corresponding status for which the files successfully loaded
+          - Catch the error if there is any connection issue & write the same file_name & corresponding status for which the files not loaded
+          - Finally, save the excel file & close the connection
