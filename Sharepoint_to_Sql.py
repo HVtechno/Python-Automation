@@ -4,20 +4,20 @@ import pyodbc
 from fast_to_sql import fast_to_sql as fts
 import os
 
-#SHAREPOINT SITE URL & FILE PATH URL
-site_url = 'https://(Your sharepoint link).sharepoint.com'
-file_path = 'https://(Your sharepoint link).sharepoint.com/sites/(Your sharepoint repository/Shared%20Documents/(Name of the Excel file that you want to download).xlsx'
-
-#SHAREPOINT CREDENTIALS
-username = '(your own sharepoint username)'
-password = '(your sharepoint password)'
+#GET ALL ENV VARIABLES
+site_url = os.getenv('sharepy_site_url')
+username = os.getenv('username')
+password = os.getenv('password')
+file_path = os.getenv('sharepy_file_path')
+DB_DRIVER =  os.getenv('DB_DRIVER')
+DB_SERVER = os.getenv('DB_SERVER')
+DB_DATABASE = os.getenv('DB_DATABASE')
+DB_USER = os.getenv('DB_USER')
+DB_PASSWORD = os.getenv('DB_PASSWORD')
 
 #CONNECTION TO SQL DB(QA)
-cnxn = pyodbc.connect("Driver={ODBC Driver 17 for SQL Server};"
-                      "Server=(your sql server);"
-                      "Database=(your sql database);"
-                      "uid=(your sql username);pwd=(your sql password);"
-                      "Trusted_Connection = yes;")
+Hconn = "Driver=" + "{" + DB_DRIVER + "};" + "Server=" + DB_SERVER + ";" + "Database=" + DB_DATABASE + ";" + "uid=" + DB_USERNAME + ";" + "pwd=" + DB_PASSWORD + ";" + "Trusted_Connection = yes;"
+cnxn = pyodbc.connect(Hconn)
 
 try:
     #AUTHENTICATE & CREATE SHAREPY OBJECT

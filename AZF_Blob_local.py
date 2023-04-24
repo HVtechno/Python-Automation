@@ -3,11 +3,12 @@ from multiprocessing.pool import ThreadPool
 #BLOB LIBRARIES
 from azure.storage.blob import BlobServiceClient, BlobClient
 from azure.storage.blob import ContentSettings, ContainerClient
+import os
 
 # Connection string to BLOB storage
-MY_CONNECTION_STRING = '(Your Blob connection string)'
+MY_CONNECTION_STRING = os.getenv('BLOB_CONNECTION')
 # Replace with blob container name
-MY_BLOB_CONTAINER = '(Your Blob container repository)'
+MY_BLOB_CONTAINER = os.getenv('BLOB_REPO')
 
 try:
 

@@ -3,7 +3,7 @@ import re
 import csv
 
 # Set the path to the directory
-dir_path = "(Your Local drive path)"
+dir_path = os.getenv('dir_path')
 
 # Create an empty list to store folder names
 folder_list = []

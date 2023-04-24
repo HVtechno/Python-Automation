@@ -3,8 +3,6 @@
 ## Automation tasks summary
 In this repository, I have developed some automations with sharepoint which can be useful for a daily repititive tasks
 
-**NOTE : In all the python files, please Replace sharepoint/sql/Azure BLOB/local drive path with your own credentials**
-
 1. On this file, **AZF_Blob_local.py** you will find below summary & steps to follow
 **Automation summary**  - To download the pdf files from blob into local drive
   * STEP1: first to connect BLOB with the variables values
@@ -28,3 +26,16 @@ In this repository, I have developed some automations with sharepoint which can 
   ![](Screenshots/sync.png)
 
   * Then, proceed with the steps that I mentioned on the code
+
+4. on this file, **Loop_sharepoint_Excel_to_sql.py** you will find below summary & steps to follow
+**Automation summary** - Loop all the Excel files from the sharepoint directory and load it to SQL
+  * Step1 : Authenticate Sharepoint with the credentials
+  * Step2 : Get the list of all files on the specified sharepoint directory
+  * Step3 : If the Excel file Extension ends with ".xlsx", If yes
+          - send the response to receive the binary file, if received
+            - read the file content
+            - Make a connection to SQL DB
+              - check If connection exist & connected
+                - try to load data from each excel to SQL SB, additionally write the file_name & corresponding status for which the files successfully loaded
+                - Catch the error if there is any connection issue & write the same file_name & corresponding status for which the files not loaded
+                - Finally, save the excel file & close the connection
